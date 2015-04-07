@@ -55,7 +55,7 @@
 ###
 export STANDALONE_SPARK_MASTER_HOST=`hostname`
 
-export SPARK_MASTER_IP=<%= scope.lookupvar('spark::master_hostname') %>
+export SPARK_MASTER_IP=<%= scope.lookupvar('spark::master') %>
 
 ### Let's run everything with JVM runtime, instead of Scala
 export SPARK_LAUNCH_WITH_SCALA=0
@@ -73,7 +73,8 @@ if [ -n "$HADOOP_HOME" ]; then
   export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/libfakeroot:/usr/lib64/libfakeroot:/usr/lib32/libfakeroot:/lib/native
 fi
 
-export HADOOP_CONF_DIR=${HADOOP_CONF_DIR:-etc/hadoop/conf}
+export HADOOP_CONF_DIR=${HADOOP_CONF_DIR:-/etc/hadoop/conf}
+export YARN_CONF_DIR=$HADOOP_CONF_DIR
 
 ### Comment above 2 lines and uncomment the following if
 ### you want to run with scala version, that is included with the package

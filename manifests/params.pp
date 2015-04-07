@@ -43,9 +43,9 @@ class spark::params {
     redhat => '/etc/spark',
   }
 
-  $workers = [ 'localhost' ]
-
-  $master_hostname = '127.0.0.1'
+  $workers = ['127.0.0.1']
+  $master = '127.0.0.1'
+  
   $master_port = 7077
   $worker_port = 7078
   $master_webui_port = 18080
