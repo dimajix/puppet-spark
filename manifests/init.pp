@@ -11,6 +11,7 @@ class spark (
   $worker_webui_port = $spark::params::worker_webui_port,
   $yarn_namenode = undef,
   $alternatives = $spark::params::alternatives,
+  $properties = undef,
   $features = undef,
 ) inherits spark::params {
   include stdlib
@@ -26,7 +27,7 @@ class spark (
       'spark.master' => "spark://${master}:${master_port}"
     }
   }
-  
-  $_defaults = merge($yarn_properties, $master_properties)
+
+  $_defaults = merge($yarn_properties, $master_properties, $properties)
 }
 
