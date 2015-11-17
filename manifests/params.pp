@@ -41,8 +41,8 @@ class spark::params {
     redhat => undef,
   }
   $confdir = "${::osfamily}-${::operatingsystem}" ? {
-    /Fedora-RedHat/ => '/etc/hive',
-    /Debian|RedHat/ => '/etc/hive/conf',
+    /Fedora-RedHat/ => '/etc/spark',
+    /Debian|RedHat/ => '/etc/spark/conf',
   }
 
   $workers = ['127.0.0.1']
