@@ -4,8 +4,8 @@
 # It sets variables according to platform
 #
 class spark::params {
-  case $::osfamily {
-    'Debian': {
+  case "${::osfamily}-${::operatingsystem}" {
+    /RedHat-Fedora/: {
       $packages = {
         common => [ 'spark-core' ],
         master => 'spark-master',
@@ -18,7 +18,7 @@ class spark::params {
         worker => 'spark-worker',
       }
     }
-    'RedHat': {
+    /Debian|RedHat/: {
       $packages = {
         common => [ 'spark-core' ],
         master => 'spark-master',
@@ -27,6 +27,8 @@ class spark::params {
         frontend => 'spark-python',
       }
       $daemons = {
+        master => 'spark-master',
+        worker => 'spark-worker',
       }
     }
     default: {
@@ -38,14 +40,14 @@ class spark::params {
     debian => 'cluster',
     redhat => undef,
   }
-  $confdir = $::osfamily ? {
-    debian => '/etc/spark/conf',
-    redhat => '/etc/spark',
+  $confdir = "${::osfamily}-${::operatingsystem}" ? {
+    /Fedora-RedHat/ => '/etc/hive',
+    /Debian|RedHat/ => '/etc/hive/conf',
   }
 
-  $workers = [ 'localhost' ]
-
-  $master_hostname = '127.0.0.1'
+  $workers = ['127.0.0.1']
+  $master = '127.0.0.1'
+  
   $master_port = 7077
   $worker_port = 7078
   $master_webui_port = 18080

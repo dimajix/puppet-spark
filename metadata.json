@@ -1,6 +1,6 @@
 {
   "name": "dimajix/spark",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "author": "Kaya Kupferschmidt <k.kupferschmidt@dimajix.de>",
   "summary": "Puppet module for managing Apache Spark",
   "license": "Apache 2.0",

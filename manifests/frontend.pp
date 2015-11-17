@@ -1,6 +1,6 @@
-# == Class hive::frontend
+# == Class spark::frontend
 #
-# Hive client.
+# Spark frontend / client.
 #
 class spark::frontend {
   include 'spark::frontend::install'
@@ -10,3 +10,4 @@ class spark::frontend {
   Class['spark::frontend::config'] ->
   Class['spark::frontend']
 }
+

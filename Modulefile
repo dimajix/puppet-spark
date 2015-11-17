@@ -1,5 +1,5 @@
 name 'dimajix-spark'
-version '0.1.0'
+version '0.1.5'
 source 'https://github.com/dimajix/puppet-spark'
 author 'Kaya Kupferschmidt <k.kupferschmidt@dimajix.de>'
 license 'Apache 2.0'
